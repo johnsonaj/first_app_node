@@ -11,6 +11,7 @@ class App {
     public health: Health = new Health('0.1.2');
     public foaas: FOAAS;
     public igdb: IGDBHandler;
+    public port: number;
 
     constructor() {
         this.app = express();
