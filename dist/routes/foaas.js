@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const request = require("request-promise-native");
+const axios_1 = require("axios");
 class FOAASMessage {
 }
 class FOAAS {
@@ -26,7 +26,8 @@ class FOAAS {
                 method: 'GET'
             };
             try {
-                response = JSON.parse(yield request(options));
+                let t = yield axios_1.default(options);
+                response = t.data;
             }
             catch (e) {
                 console.error(e);
@@ -45,7 +46,8 @@ class FOAAS {
                 method: 'GET'
             };
             try {
-                response = JSON.parse(yield request(options));
+                let t = yield axios_1.default(options);
+                response = t.data;
             }
             catch (e) {
                 console.error(e);

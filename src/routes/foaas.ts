@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import * as request from 'request-promise-native' 
+import Axios from 'axios';
 
 class FOAASMessage {
     message: string
@@ -24,11 +24,12 @@ export class FOAAS {
         }
 
         try {
-            response = JSON.parse(await request(options))
+            let t = await Axios(options)
+            response = t.data
         } catch(e) {
             console.error(e)
         }
-        
+
         return response
     }
 
@@ -43,7 +44,8 @@ export class FOAAS {
         }
 
         try {
-            response = JSON.parse(await request(options))
+            let t = await Axios(options)
+            response = t.data
         } catch(e) {
             console.error(e)
         }
@@ -65,6 +67,6 @@ export class FOAAS {
             let from = req.params.from;
             let response = await this.backOff(name, from)
             resp.status(200).send(response)
-        })
+        });
     }
 }

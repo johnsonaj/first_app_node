@@ -22,9 +22,8 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "express": "^4.16.4"
   }
 }
